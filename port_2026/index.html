@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>김나연 | Web Designer & Homepage Manager</title>
+    <meta name="author" content="김나연" />
+    <meta
+      name="description"
+      content="웹디자인 · 퍼블리싱 · 홈페이지 운영/유지보수 포트폴리오"
+    />
+    <meta name="keywords" content="웹디자인, 홈페이지 관리, 퍼블리싱, 반응형" />
+    <meta
+      property="og:title"
+      content="김나연 | Web Designer & Homepage Manager"
+    />
+    <meta
+      property="og:description"
+      content="웹디자인 · 퍼블리싱 · 홈페이지 운영/유지보수 포트폴리오"
+    />
+    <meta property="og:type" content="website" />
+
+    <style>
+      :root {
+        --bg: #0b0d12;
+        --panel: rgba(255, 255, 255, 0.06);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.62);
+        --line: rgba(255, 255, 255, 0.12);
+        --chip: rgba(255, 255, 255, 0.1);
+        --focus: rgba(255, 255, 255, 0.25);
+        --max: 980px;
+        --r: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(
+            1200px 700px at 15% 10%,
+            rgba(255, 255, 255, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 600px at 85% 30%,
+            rgba(255, 255, 255, 0.08),
+            transparent 60%
+          ),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+          "Noto Sans KR", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 10px;
+        background: #fff;
+        color: #000;
+        padding: 10px 12px;
+        border-radius: 10px;
+        z-index: 999;
+      }
+      .skip-link:focus {
+        left: 10px;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: rgba(11, 13, 18, 0.65);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 14px;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      nav a {
+        display: inline-flex;
+        padding: 8px 10px;
+        border-radius: 999px;
+        color: var(--muted);
+        border: 1px solid transparent;
+      }
+      nav a:hover {
+        color: var(--text);
+        border-color: var(--line);
+        text-decoration: none;
+      }
+      nav a:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      main {
+        padding: 48px 0 80px;
+      }
+
+      .hero {
+        padding: 56px 0 28px;
+      }
+      .hero .badge {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .hero h1 {
+        margin: 18px 0 10px;
+        font-size: clamp(32px, 5vw, 52px);
+        line-height: 1.15;
+        letter-spacing: -0.6px;
+      }
+      .hero h2 {
+        margin: 0 0 18px;
+        font-size: clamp(16px, 2.4vw, 22px);
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .hero p {
+        margin: 0;
+        max-width: 70ch;
+        color: var(--text);
+      }
+
+      .cta {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        font-weight: 600;
+      }
+      .btn:hover {
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .btn.primary {
+        background: rgba(255, 255, 255, 0.92);
+        color: #0b0d12;
+        border-color: transparent;
+      }
+      .btn.primary:hover {
+        background: #fff;
+      }
+
+      section {
+        padding: 42px 0;
+        border-top: 1px solid var(--line);
+      }
+      section:first-of-type {
+        border-top: none;
+      }
+
+      .sec-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .sec-head h3 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.2px;
+      }
+      .sec-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: var(--r);
+        padding: 16px;
+      }
+      .card h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .chip {
+        display: inline-flex;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--chip);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      /* Design Gallery v2 */
+      .design-filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 6px 0 16px;
+      }
+
+      .filter-btn {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        padding: 10px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .filter-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text);
+      }
+
+      .filter-btn:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      .filter-btn.is-active {
+        background: rgba(255, 255, 255, 0.92);
+        color: #0b0d12;
+        border-color: transparent;
+      }
+
+      .design-preview {
+        max-width: 1240px;
+        margin-inline: auto;
+      }
+
+      .design-preview img {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .preview-meta {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .preview-meta strong {
+        font-size: 16px;
+      }
+
+      .preview-meta span {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Preview: 자연스럽게 잘리고 더보기로 펼치기 */
+      .design-preview {
+        --collapsed-h: 520px; /* 접힌 상태 높이(원하는 값으로 조절) */
+      }
+
+      .preview-frame {
+        width: 100%;
+        position: relative;
+        max-height: var(--collapsed-h);
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      /* 이미지 자체는 가로 100% 유지, 세로는 원본 그대로 */
+      .preview-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* 아래쪽 페이드 (잘린 느낌 없애기) */
+      .preview-frame .fade {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 80px;
+        background: linear-gradient(
+          to bottom,
+          rgba(11, 13, 18, 0),
+          rgba(11, 13, 18, 0.85),
+          rgba(11, 13, 18, 1)
+        );
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 180ms ease;
+      }
+
+      .preview-actions {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .preview-actions .btn {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.35);
+      }
+      .preview-actions .btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      /* 펼친 상태 */
+      .design-preview.is-expanded .preview-frame {
+        max-height: none;
+      }
+
+      .design-preview.is-expanded .preview-frame .fade {
+        opacity: 0; /* 펼치면 페이드 숨김 */
+      }
+
+      .design-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .design-item {
+        text-align: left;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .design-item img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.25s ease,
+          opacity 0.25s ease;
+      }
+
+      .design-item:hover img {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+
+      .design-item .cap {
+        padding: 12px 12px 14px;
+        border-top: 1px solid var(--line);
+      }
+
+      .design-item .cap strong {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .design-item .cap span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .design-item.is-selected {
+        border-color: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+      }
+
+      .design-item:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      .design-item.is-hidden {
+        display: none;
+      }
+
+      @media (max-width: 860px) {
+        .design-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .design-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .project h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .project .meta {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .project .meta a {
+        text-decoration: none;
+        color: var(--text);
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .project .meta a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .about {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 14px;
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+      .list li {
+        margin: 6px 0;
+      }
+
+      .contact .rows {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .contact a {
+        display: block;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        background: rgba(255, 255, 255, 0.05);
+        text-decoration: none;
+      }
+      .contact a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .contact small {
+        display: block;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      footer {
+        padding: 26px 0 40px;
+        color: var(--muted);
+        font-size: 13px;
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 860px) {
+        .skills,
+        .projects {
+          grid-template-columns: 1fr;
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .contact .rows {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+    <header>
+      <div class="wrap">
+        <div class="nav" aria-label="상단 내비게이션">
+          <a class="brand" href="#top">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Portfolio</span>
+          </a>
+
+          <nav aria-label="섹션 이동">
+            <ul>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <span class="badge">웹디자인 · 퍼블리싱 · 홈페이지 운영/유지보수</span>
+        <h1>김나연</h1>
+        <h2>Web Designer & Homepage Manager</h2>
+        <p>
+          실무에서 바로 쓰이는 디자인과 퍼블리싱을 만들고, 운영/유지보수까지
+          고려한 구조로 정리합니다.
+        </p>
+
+        <div class="cta" aria-label="빠른 이동 버튼">
+          <a class="btn primary" href="#work">프로젝트 보기</a>
+          <a class="btn" href="#contact">연락하기</a>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="sec-head">
+          <h3 id="skills-title">Skills</h3>
+        </div>
+
+        <div class="grid skills">
+             <div class="card">
+            <h4>Design</h4>
+            <p>상세페이지/배너/프로모션 이미지 제작, 브랜드 톤앤매너 유지</p>
+            <div class="chips" aria-label="태그">
+              <span class="chip">Photoshop</span>
+              <span class="chip">Illustrator</span>
+              <span class="chip">Detail Page</span>
+              <span class="chip">Banner</span>
+            </div>
+          </div>
+            <div class="card">
+            <h4>Frontend Development</h4>
+            <p>
+              React 기반의 프론트엔드 구조와 컴포넌트 설계를 적용해, 상태 관리와
+              데이터 흐름을 고려한 실제 프로젝트를 개발했습니다.
+            </p>
+            <div class="chips" aria-label="태그">
+              <span class="chip">React</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">Zustand</span>
+               <span class="chip">· Server Actions</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h4>Web Publishing</h4>
+            <p>
+              HTML5 / CSS3 기반 반응형 레이아웃 구현, 크로스 브라우징 대응 및
+              유지보수 가능한 구조 설계
+            </p>
+            <div class="chips" aria-label="태그">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Responsive</span>
+              <span class="chip">Cross-browser</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>UI Interaction</h4>
+            <p>
+              JavaScript 기반 간단한 인터랙션 구현 및 운영 환경에서 필요한
+              수정·확장 대응
+            </p>
+            <div class="chips" aria-label="태그">
+              <span class="chip">JavaScript</span>
+              <span class="chip">jQuery</span>
+              <span class="chip">UI</span>
+              <span class="chip">Maintenance</span>
+            </div>
+          </div>
+
+       
+
+          <div class="card">
+            <h4>Homepage Management</h4>
+            <p>
+              콘텐츠 수정, 페이지 추가·변경, 운영 이슈 대응(레이아웃·이미지·링크
+              등)
+            </p>
+            <div class="chips" aria-label="태그">
+              <span class="chip">Content Update</span>
+              <span class="chip">QA</span>
+              <span class="chip">운영/유지보수</span>
+            </div>
+          </div>
+        
+      </section>
+
+      <!-- WORK -->
+      <section id="work" aria-labelledby="work-title">
+        <div class="sec-head">
+          <h3 id="work-title">Selected Works</h3>
+        </div>
+
+        <div class="grid projects">
+          <!-- 프로젝트 카드 1 -->
+          <article class="card project">
+            <h4>Ondive Website</h4>
+            <p>
+              CMS 기반 기업 홈페이지 리뉴얼 및 운영<br />
+              반응형 퍼블리싱 / UI 수정 / 유지보수<br />
+              운영 환경 이슈 대응 및 개선
+            </p>
+
+            <div class="chips" aria-label="사용 기술">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">jQuery</span>
+              <span class="chip">CMS (GNUboard)</span>
+            </div>
+
+            <div class="meta">
+              <a
+                href="http://ondive.co.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Site</a
+              >
+            </div>
+          </article>
+
+          <article class="card project">
+            <h4>Tongdal24 Mobile Website</h4>
+            <p>
+              모바일 전용 인터넷 대리점 홍보·상담 사이트 제작<br />
+              이미지/콘텐츠 교체 등 운영 편의성 고려<br />
+              제작 후 유지보수 가이드 제공
+            </p>
+
+            <div class="chips" aria-label="사용 기술">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">jQuery</span>
+              <span class="chip">Cafe24 Hosting</span>
+              <span class="chip">CMS (GNUboard)</span>
+            </div>
+
+            <div class="meta">
+              <a
+                href="https://tongdal24.mycafe24.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Site</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- DESIGN WORKS -->
+      <section id="design" aria-labelledby="design-title">
+        <div class="sec-head">
+          <h3 id="design-title">Design Works</h3>
+          <p>상세페이지 · 이벤트 · UI 디자인</p>
+        </div>
+
+        <!-- 필터 -->
+
+        <div class="design-preview card" data-collapsed="true">
+          <div class="preview-frame" id="previewFrame">
+            <img
+              id="preview-img"
+              src="assets/design/design1.jpg"
+              alt="디자인 작업 미리보기"
+              loading="lazy"
+            />
+            <div class="fade" aria-hidden="true"></div>
+          </div>
+
+          <div class="preview-meta">
+            <strong id="preview-title">EVENTPAGE_1</strong>
+            <span id="preview-sub">이벤트 · Photoshop / Illustrator</span>
+
+            <div class="preview-actions">
+              <button class="btn" type="button" id="togglePreviewBtn">
+                더보기
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 썸네일 그리드 -->
+        <div class="grid design-grid" id="designGrid">
+          <!-- item 1 -->
+          <button
+            class="design-item is-selected"
+            type="button"
+            data-category="event"
+            data-full="assets/design/design1.jpg"
+            data-title="DETAILPAGE_1"
+            data-sub="낚시 제품을 직접 촬영 및 소싱하여 제품 특성에 맞는 컬러와 비주얼 콘셉트로 상세페이지를 구성하였으며,
+사용 환경·성능 포인트·이벤트 정보를 섹션별로 정리해 제품의 장점을 직관적으로 전달했습니다."
+            aria-label="DETAILPAGE_1 보기"
+          >
+            <img
+              src="assets/design/thumb1.jpg"
+              alt="DETAILPAGE_1 썸네일"
+              loading="lazy"
+            />
+            <div class="cap">
+              <strong>DETAILPAGE_1</strong>
+              <span>상세 · PS/AI</span>
+            </div>
+          </button>
+
+          <!-- item 2 -->
+          <button
+            class="design-item"
+            type="button"
+            data-category="event"
+            data-full="assets/design/design2.jpg"
+            data-title="DETAILPAGE_2"
+            data-sub="이벤트 성격에 맞는 비주얼과 컬러를 중심으로 디자인을 구성하고,
+혜택·참여 방식·핵심 메시지를 단계적으로 배치해 사용자의 이해를 돕는 상세페이지를 제작했습니다."
+            aria-label="DETAILPAGE_2 보기"
+          >
+            <img
+              src="assets/design/thumb2.jpg"
+              alt="DETAILPAGE_2 썸네일"
+              loading="lazy"
+            />
+            <div class="cap">
+              <strong>DETAILPAGE_2</strong>
+              <span>상세 · PS/AI</span>
+            </div>
+          </button>
+
+          <!-- item 3 -->
+          <button
+            class="design-item"
+            type="button"
+            data-category="detail"
+            data-full="assets/design/design3.jpg"
+            data-title="DETAILPAGE_3"
+            data-sub="브랜드 아이덴티티를 반영한 컬러와 톤으로 비주얼을 구성하고,
+제품의 효능과 콘셉트를 중심으로 신뢰감 있는 상세페이지를 제작했습니다."
+            aria-label="DETAILPAGE_3 보기"
+          >
+            <img
+              src="assets/design/thumb3.jpg"
+              alt="DETAILPAGE_3 썸네일"
+              loading="lazy"
+            />
+            <div class="cap">
+              <strong>DETAILPAGE_3</strong>
+              <span>상세 · PS/AI</span>
+            </div>
+          </button>
+
+          <!-- item 4 -->
+          <button
+            class="design-item"
+            type="button"
+            data-category="banner"
+            data-full="assets/design/design4.jpg"
+            data-title="Homepage"
+            data-sub="CMS 기반으로 메인 홈페이지를 디자인하고 퍼블리싱하여,
+관리자에서 배너·콘텐츠를 손쉽게 관리할 수 있도록 구성했습니다."
+            aria-label="Homepage 보기"
+          >
+            <img
+              src="assets/design/thumb4.jpg"
+              alt="Homepage 썸네일"
+              loading="lazy"
+            />
+            <div class="cap">
+              <strong>Homepage</strong>
+              <span>사이트 · PS/AI</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="sec-head">
+          <h3 id="about-title">About</h3>
+        </div>
+
+        <div class="about">
+          <div class="card">
+            <h4>한 줄 소개</h4>
+            <p>
+             웹디자인과 퍼블리싱 경험을 바탕으로,
+운영과 유지보수를 고려한 구조적인 결과물을 지향합니다.
+변경 사항을 빠르게 파악하고 정확히 반영하는 데 강점이 있습니다.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>업무 스타일</h4>
+            <ul class="list">
+              <li>요청사항을 “수정 가능한 구조”로 정리</li>
+              <li>운영 중 발생하는 이슈(레이아웃/링크/이미지) 대응</li>
+              <li>재사용 가능한 템플릿/가이드 형태로 정돈</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="sec-head">
+          <h3 id="contact-title">Contact</h3>
+        </div>
+
+        <div class="rows">
+          <a href="mailto:nayun9191@gmail.com">
+            <strong>Email</strong>
+            <small>nayun9191@gmail.com</small>
+          </a>
+
+          <a href="tel:+821091749191">
+            <strong>Phone</strong>
+            <small>+82 10-9174-9191</small>
+          </a>
+        </div>
+
+        <div style="margin-top: 12px; color: var(--muted); font-size: 14px">
+          <span>Location: Incheon, Korea</span>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap" style="padding: 0">
+          © <span id="year"></span> Kim Nayeon. All rights reserved.
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // 연도 자동 표기
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Design Gallery: preview change + filter + 더보기/접기
+      (function () {
+        const grid = document.getElementById("designGrid");
+        if (!grid) return; // design 섹션이 없으면 종료
+
+        const previewBox = document.querySelector(".design-preview");
+        const toggleBtn = document.getElementById("togglePreviewBtn");
+
+        const previewImg = document.getElementById("preview-img");
+        const previewTitle = document.getElementById("preview-title");
+        const previewSub = document.getElementById("preview-sub");
+
+        const items = Array.from(grid.querySelectorAll(".design-item"));
+        const filterButtons = Array.from(
+          document.querySelectorAll(".filter-btn"),
+        );
+
+        // --- 더보기/접기 ---
+        function collapsePreview() {
+          if (!previewBox || !toggleBtn) return;
+          previewBox.classList.remove("is-expanded");
+          toggleBtn.textContent = "더보기";
+        }
+
+        function togglePreview() {
+          if (!previewBox || !toggleBtn) return;
+          const expanded = previewBox.classList.toggle("is-expanded");
+          toggleBtn.textContent = expanded ? "접기" : "더보기";
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", togglePreview);
+        }
+
+        // --- 썸네일 선택 ---
+        function selectItem(btn) {
+          if (!btn) return;
+
+          items.forEach((x) => x.classList.remove("is-selected"));
+          btn.classList.add("is-selected");
+
+          const full = btn.dataset.full || "";
+          const title = btn.dataset.title || "";
+          const sub = btn.dataset.sub || "";
+
+          if (previewImg) previewImg.src = full;
+          if (previewTitle) previewTitle.textContent = title;
+          if (previewSub) previewSub.textContent = sub;
+          if (previewImg)
+            previewImg.alt = title
+              ? `${title} 미리보기`
+              : "디자인 작업 미리보기";
+
+          // ✅ 작업 바뀌면 항상 접힌 상태로 리셋
+          collapsePreview();
+
+          // (선택) 상세페이지일 때만 더보기 보이고 싶으면 아래 주석 해제 + CSS도 같이 적용
+          // if (previewBox) {
+          //   const isDetail = btn.dataset.category === "detail";
+          //   previewBox.classList.toggle("show-toggle", isDetail);
+          // }
+        }
+
+        // --- 필터 ---
+        function applyFilter(filter) {
+          items.forEach((btn) => {
+            const cat = btn.dataset.category;
+            const show = filter === "all" || cat === filter;
+            btn.classList.toggle("is-hidden", !show);
+          });
+
+          const firstVisible = items.find(
+            (x) => !x.classList.contains("is-hidden"),
+          );
+          if (firstVisible) selectItem(firstVisible);
+          else collapsePreview();
+        }
+
+        // 썸네일 클릭
+        items.forEach((btn) => {
+          btn.addEventListener("click", () => selectItem(btn));
+        });
+
+        // 필터 버튼 클릭
+        filterButtons.forEach((b) => {
+          b.addEventListener("click", () => {
+            filterButtons.forEach((x) => {
+              x.classList.remove("is-active");
+              x.setAttribute("aria-selected", "false");
+            });
+            b.classList.add("is-active");
+            b.setAttribute("aria-selected", "true");
+
+            applyFilter(b.dataset.filter);
+          });
+        });
+
+        // 초기 선택
+        const initiallySelected =
+          items.find((x) => x.classList.contains("is-selected")) || items[0];
+        if (initiallySelected) selectItem(initiallySelected);
+      })();
+    </script>
+  </body>
+</html>
